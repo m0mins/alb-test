@@ -19,7 +19,7 @@ services:
 
   app3:
     build:
-      context: ./app2
+      context: ./app3
       dockerfile: ../Dockerfile
     ports:
       - "8003:80"
