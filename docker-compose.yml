@@ -1,56 +1,18 @@
 version: "3.8"
 
 services:
-  fastapi1:
-    build: .
-    container_name: fastapi1
-    hostname: fastapi1         # 👈 Add this line
-    environment:
-        - APPPORT=8001
-    networks:
-      - webnet
-
-  fastapi2:
-    build: .
-    container_name: fastapi2
-    hostname: fastapi2         # 👈 Add this line
-    environment:
-        - APPPORT=8002
-    networks:
-      - webnet
-
-  fastapi3:
-    build: .
-    container_name: fastapi3
-    hostname: fastapi3
-    environment:
-        - APPPORT=8003
-    networks:
-      - webnet
-
-  fastapi4:
-    build: .
-    container_name: fastapi4
-    hostname: fastapi4
-    environment:
-        - APPPORT=8004
-    networks:
-      - webnet
-
-  haproxy:
-    image: haproxy:latest
-    container_name: haproxy
+  app1:
+    build:
+      context: ./app1
+      dockerfile: ../Dockerfile
     ports:
-      - "8003:8003"
-    volumes:
-      - ./haproxy/haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg:ro
-    depends_on:
-      - fastapi1
-      - fastapi2
-      - fastapi3
-      - fastapi4
-    networks:
-      - webnet
+      - "8001:80"
+    container_name: fastapi_app1
 
-networks:
-  webnet:
+  app2:
+    build:
+      context: ./app2
+      dockerfile: ../Dockerfile
+    ports:
+      - "8002:80"
+    container_name: fastapi_app2
