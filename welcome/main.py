@@ -10,5 +10,5 @@ def read_root():
 
 @app.get("/")
 def read_root():
-    # time.sleep(10)
+    time.sleep(10)
     return {"message": " Hello !! Welcome to home page."}
