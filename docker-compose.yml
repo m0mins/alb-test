@@ -24,3 +24,11 @@ services:
     ports:
       - "8003:80"
     container_name: fastapi_app3
+
+  welcome:
+    build:
+      context: ./welcome
+      dockerfile: ../Dockerfile
+    ports:
+      - "8004:80"
+    container_name: fastapi_welcome
