@@ -7,3 +7,8 @@ app = FastAPI()
 def read_root():
     time.sleep(10)
     return {"message": " Hello !! Welcome to news page."}
+
+@app.get("/")
+def read_root():
+    time.sleep(10)
+    return {"message": " Hello !! Welcome to home page."}
