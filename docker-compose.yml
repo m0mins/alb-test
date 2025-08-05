@@ -33,7 +33,7 @@ services:
       - "8004:80"
     container_name: fastapi_welcome
 
-  App_Accounts:
+  app_accounts:
     build:
       context: ./app_accounts
       dockerfile: ../Dockerfile
