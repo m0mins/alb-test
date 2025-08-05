@@ -35,8 +35,8 @@ services:
 
   app_accounts:
     build:
-      context: ./app_accounts
+      context: ./App_Accounts
       dockerfile: ../Dockerfile
     ports:
       - "8005:80"
-    container_name: app_accounts
+    container_name: App_accounts
