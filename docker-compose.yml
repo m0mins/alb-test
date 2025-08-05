@@ -32,3 +32,11 @@ services:
     ports:
       - "8004:80"
     container_name: fastapi_welcome
+
+  App_Accounts:
+    build:
+      context: ./App_Accounts
+      dockerfile: ../Dockerfile
+    ports:
+      - "8005:80"
+    container_name: App_Accounts
