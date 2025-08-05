@@ -16,7 +16,7 @@ def read_root():
 # @app.get("/healthz")
 # def health_check():
 #     return {"status": "ok"}
-is_healthy = False  # Start unhealthy for testing
+is_healthy = True  # Start unhealthy for testing
 
 @app.get("/healthz")
 def health_check():
