@@ -12,3 +12,7 @@ def read_root():
 def read_root():
     time.sleep(10)
     return {"message": " Hello !! Welcome to home page."}
+
+@app.get("/healthz")
+def health_check():
+    return {"status": "ok"}
