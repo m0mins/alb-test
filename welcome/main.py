@@ -27,7 +27,10 @@ def health_check():
 
 @app.get("/")
 def home():
-    return {"message": "Welcome to Home"}
+    if is_healthy:
+        return {"message": "Welcome to Home"}
+    else:
+        return Response(content='{"message": "Service is unhealthy"}', status_code=503, media_type="application/json")
 
 @app.get("/toggle-health")
 def toggle_health():
