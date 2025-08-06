@@ -1,6 +1,7 @@
-from fastapi import FastAPI
+# from fastapi import FastAPI
+from fastapi import FastAPI, Response
 import time
-
+import json
 app = FastAPI()
 
 @app.get("/welcome")
@@ -19,11 +20,12 @@ def read_root():
 #     return {"status": "ok"}
 
 
-is_healthy = False 
+# is_healthy = False 
+app.state.is_healthy = False
 
 @app.get("/healthz")
 def health_check():
-    if is_healthy:
+    if app.state.is_healthy:
         return {"status": "healthy"}
     else:
         # More descriptive unhealthy message
