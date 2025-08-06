@@ -8,6 +8,7 @@ def read_root():
     # time.sleep(10)
     return {"message": " Hello !! Welcome to news page."}
 
+
 # @app.get("/")
 # def read_root():
 #     time.sleep(10)
@@ -16,7 +17,9 @@ def read_root():
 # @app.get("/healthz")
 # def health_check():
 #     return {"status": "ok"}
-is_healthy = False  # Start unhealthy for testing
+
+
+is_healthy = True 
 
 @app.get("/healthz")
 def health_check():
