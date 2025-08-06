@@ -19,7 +19,7 @@ def read_root():
 #     return {"status": "ok"}
 
 
-is_healthy = True 
+is_healthy = False 
 
 @app.get("/healthz")
 def health_check():
@@ -30,13 +30,20 @@ def health_check():
 
 @app.get("/")
 def home():
-    if is_healthy:
-        return {"message": "Welcome to Home"}
-    else:
-        return Response(content='{"message": "Service is unhealthy"}', status_code=503, media_type="application/json")
+    return {"message": "Welcome to Home"}
+
 
 @app.get("/toggle-health")
 def toggle_health():
     global is_healthy
     is_healthy = not is_healthy
     return {"is_healthy": is_healthy}
+
+
+
+# @app.get("/")
+# def home():
+#     if is_healthy:
+#         return {"message": "Welcome to Home"}
+#     else:
+#         return Response(content='{"message": "Service is unhealthy"}', status_code=503, media_type="application/json")
