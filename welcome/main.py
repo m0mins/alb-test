@@ -26,7 +26,15 @@ def health_check():
     if is_healthy:
         return {"status": "healthy"}
     else:
-        return Response(content='{"status": "unhealthy"}', status_code=500, media_type="application/json")
+        # More descriptive unhealthy message
+        return Response(
+            content=json.dumps({
+                "status": "unhealthy",
+                "message": "The service is currently not healthy"
+            }),
+            status_code=500,
+            media_type="application/json"
+        )
 
 @app.get("/")
 def home():
