@@ -29,4 +29,5 @@ COPY ./ /app
 EXPOSE 80
 
 # Start both Nginx and Gunicorn
-CMD bash -c "service nginx start && gunicorn --workers 2 --timeout 100 --bind 0.0.0.0:8000 app.main:app"
+# CMD bash -c "service nginx start && gunicorn --workers 2 --timeout 100 --bind 0.0.0.0:8000 app.main:app"
+CMD ["nginx", "-g", "daemon off;"]
