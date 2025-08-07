@@ -6,19 +6,17 @@ services:
       context: ./app1
       dockerfile: ../Dockerfile
     ports:
-      - "8001:80"
+      - "80:80"
     container_name: fastapi_app1
     environment:
       - PORT=8001
-    # command: sh -c "uvicorn main:app --host 127.0.0.1 --port 8001 & nginx -g 'daemon off;'"
-
 
   app2:
     build:
       context: ./app2
       dockerfile: ../Dockerfile
     ports:
-      - "8002:80"
+      - "80:80"
     container_name: fastapi_app2
     environment:
       - PORT=8002
