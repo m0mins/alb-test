@@ -5,41 +5,50 @@ services:
     build:
       context: ./app1
       dockerfile: ../Dockerfile
-    ports:
-      - "8001:80"
+    # ports:
+    #   - "8001:80"
     container_name: fastapi_app1
     environment:
       - PORT=8001
+    expose:
+      - "80"
 
   app2:
     build:
       context: ./app2
       dockerfile: ../Dockerfile
-    ports:
-      - "8002:80"
+    # ports:
+    #   - "8002:80"
     container_name: fastapi_app2
     environment:
       - PORT=8002
+    expose:
+      - "80"
 
   app3:
     build:
       context: ./app3
       dockerfile: ../Dockerfile
-    ports:
-      - "8003:80"
+    # ports:
+    #   - "8003:80"
     container_name: fastapi_app3
     environment:
       - PORT=8003
+    expose:
+      - "80"
 
   welcome:
     build:
       context: ./welcome
       dockerfile: ../Dockerfile
-    ports:
-      - "8004:80"
+    # ports:
+    #   - "8004:80"
     container_name: fastapi_welcome
     environment:
       - PORT=800
+
+    expose:
+      - "80"
 
   nginx:
     image: nginx:latest
