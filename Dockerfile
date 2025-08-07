@@ -12,7 +12,10 @@ FROM tiangolo/uvicorn-gunicorn-fastapi:python3.9
 
 # Switch to root to install packages
 USER root
-RUN apk add --no-cache nginx
+
+RUN apt-get update && apt-get install -y nginx && \
+    rm -rf /var/lib/apt/lists/*
+
 RUN rm /etc/nginx/nginx.conf
 COPY scripts/nginx/default.conf /etc/nginx/nginx.conf
 
