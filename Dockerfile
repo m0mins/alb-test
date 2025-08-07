@@ -28,9 +28,4 @@ COPY ./ /app
 # Expose Nginx port
 EXPOSE 80
 
-# Start both Nginx and Gunicorn
-# CMD bash -c "service nginx start && gunicorn --workers 2 --timeout 100 --bind 0.0.0.0:8000 app.main:app"
-# CMD ["nginx", "-g", "daemon off;"]
-# ENV PORT=8001
-# CMD sh -c "uvicorn main:app --host 127.0.0.1 --port $PORT & nginx -g 'daemon off;'"
 CMD sh -c "uvicorn main:app --host 0.0.0.0 --port $PORT & nginx -g 'daemon off;'"
