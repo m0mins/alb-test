@@ -16,9 +16,9 @@ USER root
 RUN apt-get update && apt-get install -y nginx && \
     rm -rf /var/lib/apt/lists/*
 
-RUN rm /etc/nginx/nginx.conf
-COPY scripts/nginx/default.conf /etc/nginx/nginx.conf
-
+# RUN rm /etc/nginx/nginx.conf
+# COPY scripts/nginx/default.conf /etc/nginx/nginx.conf
+COPY scripts/nginx/default.conf /etc/nginx/conf.d/default.conf
 # Set working directory
 WORKDIR /app
 
@@ -30,4 +30,7 @@ EXPOSE 80
 
 # Start both Nginx and Gunicorn
 # CMD bash -c "service nginx start && gunicorn --workers 2 --timeout 100 --bind 0.0.0.0:8000 app.main:app"
-CMD ["nginx", "-g", "daemon off;"]
+# CMD ["nginx", "-g", "daemon off;"]
+# ENV PORT=8001
+# CMD sh -c "uvicorn main:app --host 127.0.0.1 --port $PORT & nginx -g 'daemon off;'"
+CMD sh -c "uvicorn main:app --host 127.0.0.1 --port $PORT & nginx -g 'daemon off;'"

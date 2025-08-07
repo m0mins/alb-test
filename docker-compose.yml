@@ -3,34 +3,42 @@ version: "3.8"
 services:
   app1:
     build:
-      # context: ./app1
-      context: .
-      # dockerfile: ../Dockerfile
-      dockerfile: app1/Dockerfile
+      context: ./app1
+      dockerfile: ../Dockerfile
     ports:
       - "8001:80"
     container_name: fastapi_app1
+    environment:
+      - PORT=8001
+    # command: sh -c "uvicorn main:app --host 127.0.0.1 --port 8001 & nginx -g 'daemon off;'"
+
 
   app2:
     build:
-      context: .
-      dockerfile: app2/Dockerfile
+      context: ./app2
+      dockerfile: ../Dockerfile
     ports:
       - "8002:80"
     container_name: fastapi_app2
+    environment:
+      - PORT=8002
 
   app3:
     build:
-      context: .
-      dockerfile: app3/Dockerfile
+      context: ./app3
+      dockerfile: ../Dockerfile
     ports:
       - "8003:80"
     container_name: fastapi_app3
+    environment:
+      - PORT=8003
 
   welcome:
     build:
-      context: .
-      dockerfile: welcome/Dockerfile
+      context: ./welcome
+      dockerfile: ../Dockerfile
     ports:
       - "8004:80"
     container_name: fastapi_welcome
+    environment:
+      - PORT=8004
