@@ -13,24 +13,24 @@ services:
 
   app2:
     build:
-      context: ./app2
-      dockerfile: ../Dockerfile
+      context: .
+      dockerfile: app2/Dockerfile
     ports:
       - "8002:80"
     container_name: fastapi_app2
 
   app3:
     build:
-      context: ./app3
-      dockerfile: ../Dockerfile
+      context: .
+      dockerfile: app3/Dockerfile
     ports:
       - "8003:80"
     container_name: fastapi_app3
 
   welcome:
     build:
-      context: ./welcome
-      dockerfile: ../Dockerfile
+      context: .
+      dockerfile: welcome/Dockerfile
     ports:
       - "8004:80"
     container_name: fastapi_welcome
