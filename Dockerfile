@@ -33,4 +33,4 @@ EXPOSE 80
 # CMD ["nginx", "-g", "daemon off;"]
 # ENV PORT=8001
 # CMD sh -c "uvicorn main:app --host 127.0.0.1 --port $PORT & nginx -g 'daemon off;'"
-CMD sh -c "uvicorn main:app --host 127.0.0.1 --port $PORT & nginx -g 'daemon off;'"
+CMD sh -c "uvicorn main:app --host 0.0.0.0 --port $PORT & nginx -g 'daemon off;'"
