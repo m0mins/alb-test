@@ -41,16 +41,16 @@ FROM tiangolo/uvicorn-gunicorn-fastapi:python3.9
 ARG APP_DIR
 
 # Switch to root to install packages
-USER ubuntu
+USER root
 
 # Install nginx
-RUN apt-get update && apt-get install -y nginx && \
-    rm -rf /var/lib/apt/lists/*
-
+# RUN apt-get update && apt-get install -y nginx && \
+#     rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y sudo
 # Remove default nginx config and copy our shared one
-RUN rm /etc/nginx/nginx.conf
-COPY scripts/nginx/default.conf /etc/nginx/nginx.conf
-
+RUN sudo rm /etc/nginx/nginx.conf
+# COPY scripts/nginx/default.conf /etc/nginx/nginx.conf
+RUN sudo cp scripts/nginx/default.conf /etc/nginx/nginx.conf
 # Copy the selected app
 COPY ${APP_DIR}/ /app/
 
