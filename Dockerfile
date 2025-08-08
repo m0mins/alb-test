@@ -44,13 +44,13 @@ ARG APP_DIR
 USER root
 
 # Install nginx
-# RUN apt-get update && apt-get install -y nginx && \
-#     rm -rf /var/lib/apt/lists/*
-RUN apt-get update && apt-get install -y sudo
+RUN apt-get update && apt-get install -y nginx && \
+    rm -rf /var/lib/apt/lists/*
+
 # Remove default nginx config and copy our shared one
-RUN sudo rm /etc/nginx/nginx.conf
-# COPY scripts/nginx/default.conf /etc/nginx/nginx.conf
-RUN sudo cp scripts/nginx/default.conf /etc/nginx/nginx.conf
+RUN rm /etc/nginx/nginx.conf
+COPY scripts/nginx/default.conf /etc/nginx/nginx.conf
+
 # Copy the selected app
 COPY ${APP_DIR}/ /app/
 
