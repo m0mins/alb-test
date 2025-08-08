@@ -3,8 +3,10 @@ version: "3.8"
 services:
   app1:
     build:
-      context: ./app1
-      dockerfile: ../Dockerfile
+      context: .
+      dockerfile: Dockerfile
+      args:
+        APP_DIR: app1  
     ports:
       - "8001:80"
     container_name: fastapi_app1
@@ -14,8 +16,10 @@ services:
 
   app2:
     build:
-      context: ./app2
-      dockerfile: ../Dockerfile
+      context: .
+      dockerfile: Dockerfile
+      args:
+        APP_DIR: app2
     ports:
       - "8002:80"
     container_name: fastapi_app2
@@ -24,8 +28,10 @@ services:
 
   app3:
     build:
-      context: ./app3
-      dockerfile: ../Dockerfile
+      context: .
+      dockerfile: Dockerfile
+      args:
+        APP_DIR: app3
     ports:
       - "8003:80"
     container_name: fastapi_app3
@@ -34,8 +40,10 @@ services:
 
   welcome:
     build:
-      context: ./welcome
-      dockerfile: ../Dockerfile
+      context: .
+      dockerfile: Dockerfile
+      args:
+        APP_DIR: welcome
     ports:
       - "8004:80"
     container_name: fastapi_welcome
