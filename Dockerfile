@@ -41,8 +41,7 @@ FROM tiangolo/uvicorn-gunicorn-fastapi:python3.9
 ARG APP_DIR
 
 # Switch to root to install packages
-# USER root
-user nginx;
+USER root
 
 # Install nginx
 RUN apt-get update && apt-get install -y nginx && \
