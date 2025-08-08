@@ -16,9 +16,9 @@ USER root
 RUN apt-get update && apt-get install -y nginx && \
     rm -rf /var/lib/apt/lists/*
 
-# RUN rm /etc/nginx/nginx.conf
-# COPY scripts/nginx/default.conf /etc/nginx/nginx.conf
-COPY scripts/nginx/default.conf /etc/nginx/conf.d/default.conf
+RUN rm /etc/nginx/nginx.conf
+COPY scripts/nginx/default.conf /etc/nginx/nginx.conf
+# COPY scripts/nginx/default.conf /etc/nginx/conf.d/default.conf
 # Set working directory
 WORKDIR /app
 
