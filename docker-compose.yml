@@ -49,15 +49,3 @@ services:
     container_name: fastapi_welcome
     environment:
       - PORT=8004
-
-  app-v2:
-    build:
-      context: .
-      dockerfile: Dockerfile
-      args:
-        APP_DIR: app-v2
-    ports:
-      - "8005:80"
-    container_name: fastapi_app-v2
-    environment:
-      - PORT=8005
