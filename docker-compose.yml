@@ -38,14 +38,14 @@ services:
     environment:
       - PORT=8003
 
-  welcome:
-    build:
-      context: .
-      dockerfile: Dockerfile
-      args:
-        APP_DIR: welcome
-    ports:
-      - "8004:80"
-    container_name: fastapi_welcome
-    environment:
-      - PORT=8004
+  # welcome:
+  #   build:
+  #     context: .
+  #     dockerfile: Dockerfile
+  #     args:
+  #       APP_DIR: welcome
+  #   ports:
+  #     - "8004:80"
+  #   container_name: fastapi_welcome
+  #   environment:
+  #     - PORT=8004
