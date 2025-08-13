@@ -12,6 +12,30 @@ services:
     container_name: fastapi_app1
     environment:
       - PORT=8001
+
+  app2:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        APP_DIR: app2  
+    ports:
+      - "8002:80"
+    container_name: fastapi_app
+    environment:
+      - PORT=8002
+
+  app3:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        APP_DIR: app3
+    ports:
+      - "8003:80"
+    container_name: fastapi_app3
+    environment:
+      - PORT=8003
   
   app-v2:
     build:
